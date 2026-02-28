@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Birthday!</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <style>
+      :root {
+        --primary: #ff758c;
+        --secondary: #ff7eb3;
+        --glass: rgba(255, 255, 255, 0.2);
+      }
+
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+        color: white;
+        overflow-x: hidden;
+        display: flex;
+        justify-content: center;
+      }
+
+      /* Mobile Container */
+      .mobile-view {
+        width: 100%;
+        max-width: 450px;
+        min-height: 100vh;
+        padding: 20px;
+        box-sizing: border-box;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative; /* FIXED */
+        overflow: hidden;
+      }
+
+      /* Floating Decoration Objects */
+      .floating-heart {
+        position: absolute;
+        font-size: 40px;
+        animation: fly 8s linear infinite;
+        opacity: 0.7;
+        pointer-events: none;
+        z-index: 1; /* FIXED */
+      }
+
+      @keyframes fly {
+        0% {
+          transform: translateY(100vh) rotate(0deg);
+        }
+        100% {
+          transform: translateY(-20vh) rotate(360deg);
+        }
+      }
+
+      /* Photo Frame */
+      .photo-container {
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        border: 6px solid white;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+        margin-bottom: 25px;
+        animation: pulse 3s infinite ease-in-out;
+      }
+
+      .photo-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.08);
+          box-shadow: 0 15px 45px rgba(255, 255, 255, 0.4);
+        }
+      }
+
+      /* Typography */
+      h1 {
+        font-family: "Dancing Script", cursive;
+        font-size: 2.8rem;
+        margin: 10px 0;
+        text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Glass Card */
+      .glass-card {
+        background: var(--glass);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 20px;
+        padding: 25px;
+        margin-top: 20px;
+        width: 90%;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        animation: slideUp 1s forwards ease-out 0.5s;
+        transform: translateY(30px);
+        opacity: 0;
+      }
+
+      @keyframes slideUp {
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      /* Button */
+      .btn {
+        background: white;
+        color: #ff758c;
+        border: none;
+        padding: 15px 30px;
+        border-radius: 50px;
+        font-weight: 600;
+        margin-top: 30px;
+        cursor: pointer;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: 0.3s;
+      }
+
+      .btn:active {
+        transform: scale(0.9);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="mobile-view">
+      <!-- Floating Elements -->
+      <!-- Floating Elements -->
+      <div class="floating-heart" style="left: 5%; animation-delay: 0s">🎈</div>
+      <div class="floating-heart" style="left: 15%; animation-delay: 2s">
+        🎈
+      </div>
+      <div class="floating-heart" style="left: 25%; animation-delay: 4s">
+        ✨
+      </div>
+      <div class="floating-heart" style="left: 35%; animation-delay: 1s">
+        🌸
+      </div>
+      <div class="floating-heart" style="left: 45%; animation-delay: 3s">
+        🎈
+      </div>
+      <div class="floating-heart" style="left: 55%; animation-delay: 5s">
+        ✨
+      </div>
+      <div class="floating-heart" style="left: 65%; animation-delay: 2.5s">
+        🌸
+      </div>
+      <div class="floating-heart" style="left: 75%; animation-delay: 4.5s">
+        🎈
+      </div>
+      <div class="floating-heart" style="left: 85%; animation-delay: 1.5s">
+        ✨
+      </div>
+      <div class="floating-heart" style="left: 95%; animation-delay: 3.5s">
+        🌸
+      </div>
+
+      <div class="photo-container">
+        <img
+          src="https://scontent.fdac169-1.fna.fbcdn.net/v/t39.30808-6/619332335_122251503368162770_4856724358379958338_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=1d70fc&_nc_eui2=AeHio_jpavH-DRUaoh9wdyALvVPpW8xATXy9U-lbzEBNfIr8rs60KOHOsPdrvS-YMQepXoCAaR7BPu0Qb6Gky9Yo&_nc_ohc=3t5mQ8LgtcAQ7kNvwEDZs7U&_nc_oc=AdnUZaAEScHeMUyIszUDVefhPe6FNrSwzGwLUMkaAB-_QZxS5Dgs3KTkhvde_eTSV-M&_nc_zt=23&_nc_ht=scontent.fdac169-1.fna&_nc_gid=vvcDoi4nD1093iOW8ZlStA&_nc_ss=8&oh=00_Aft5sqLmgtc0wT-ks7Lczr6EDM-hVXJdukYtc908XMZPCQ&oe=69A933A2"
+          alt="Birthday Girl"
+        />
+      </div>
+
+      <h1>Happy Birthday!</h1>
+
+      <div class="glass-card">
+        <p style="margin: 0; line-height: 1.6">
+          To an amazing friend! 🌟 <br /><br />
+          May your day be filled with as much joy, color, and fun as these
+          balloons. Keep shining!
+        </p>
+      </div>
+
+      <button class="btn" onclick="celebrate()">TAP FOR SURPRISE 🎁</button>
+    </div>
+
+    <script>
+      function celebrate() {
+        var duration = 3 * 1000;
+        var end = Date.now() + duration;
+
+        (function frame() {
+          confetti({
+            particleCount: 3,
+            angle: 60,
+            spread: 55,
+            origin: { x: 0 },
+            colors: ["#ffffff", "#ff758c"],
+          });
+          confetti({
+            particleCount: 3,
+            angle: 120,
+            spread: 55,
+            origin: { x: 1 },
+            colors: ["#ffffff", "#ff758c"],
+          });
+
+          if (Date.now() < end) {
+            requestAnimationFrame(frame);
+          }
+        })();
+      }
+    </script>
+  </body>
+</html>
